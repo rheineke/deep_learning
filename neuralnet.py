@@ -234,9 +234,9 @@ class NeuralNetMLP(object):
             y_train_pred = self.predict(X_train)
             y_valid_pred = self.predict(X_valid)
 
-            train_acc = ((np.sum(y_train == y_train_pred)).astype(np.float) /
+            train_acc = ((np.sum(y_train == y_train_pred)).astype(float) /
                          X_train.shape[0])
-            valid_acc = ((np.sum(y_valid == y_valid_pred)).astype(np.float) /
+            valid_acc = ((np.sum(y_valid == y_valid_pred)).astype(float) /
                          X_valid.shape[0])
 
             sys.stderr.write('\r%0*d/%d | Cost: %.2f '

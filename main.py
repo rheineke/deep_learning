@@ -3,7 +3,6 @@ import struct
 import time
 from pathlib import Path
 
-from sklearn.datasets import fetch_mldata
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -95,7 +94,7 @@ if __name__ == '__main__':
     plt.savefig('images/12_08.png', dpi=300)
 
     y_test_pred = nn.predict(X_test)
-    acc = (np.sum(y_test == y_test_pred).astype(np.float) / X_test.shape[0])
+    acc = (np.sum(y_test == y_test_pred).astype(float) / X_test.shape[0])
 
     print('Test accuracy: %.2f%%' % (acc * 100))
 
