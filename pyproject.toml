@@ -23,9 +23,13 @@ only-include = ["main.py", "neuralnet.py"]
 
 [tool.ruff]
 line-length = 88
+extend-exclude = ["*.ipynb"]
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B"]
+# Legacy exploratory code: unused locals and loop variables, %-formatting,
+# lambdas and zip() without strict are left as written
+ignore = ["UP031"]
 
 [tool.mypy]
 ignore_missing_imports = true
