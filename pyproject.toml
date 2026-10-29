@@ -1,0 +1,38 @@
+[project]
+name = "deep-learning"
+version = "0.1.0"
+description = "Python demo of deep learning"
+readme = "README.md"
+requires-python = ">=3.14.8"
+dependencies = [
+    "matplotlib>=3.11",
+    "numpy>=2.5",
+    "scikit-learn>=1.8",
+]
+
+[project.optional-dependencies]
+dev = ["ipdb", "mypy", "ruff"]
+test = ["pytest"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+only-include = ["main.py", "neuralnet.py"]
+
+[tool.ruff]
+line-length = 88
+extend-exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+# Legacy exploratory code: unused locals and loop variables, %-formatting,
+# lambdas and zip() without strict are left as written
+ignore = ["UP031"]
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+python_files = ["*_test.py"]
